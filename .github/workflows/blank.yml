@@ -1,0 +1,34 @@
+name: Terraform Deployment
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v1
+      with:
+        terraform_version: 0.14.7   # Use the desired Terraform version
+
+    - name: Initialize Terraform
+      run: terraform init
+
+    - name: Plan
+      run: terraform plan -out=tfplan
+
+    - name: Deploy
+      run: terraform apply tfplan
+      env:
+        TF_VAR_variable_name: ${{ secrets.TF_VAR_variable_name }}
+      # You can set additional environment variables here
+
+    - name: Cleanup
+      run: rm -f tfplan
