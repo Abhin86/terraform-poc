@@ -18,22 +18,22 @@ jobs:
       with:
         terraform_version: 0.14.7   # Use the desired Terraform version
    
-    - name: Change directory
-      run: cd gcp-terraformcode-module-gke/environment/prod
+#    - name: Change directory
+#      run: cd gcp-terraformcode-module-gke/environment/prod
 
     - name: Initialize Terraform
       run: |
-       terraform init
+       terraform init gcp-terraformcode-module-gke/environment/prod
 
     - name: Plan
       run: |
-       terraform plan --auto-approve
+       terraform plan gcp-terraformcode-module-gke/environment/prod
 
-    - name: Deploy
-      run: |
-       terraform apply --auto-approve
-      env:
-        TF_VAR_variable_name: ${{ secrets.TF_VAR_variable_name }}
+#    - name: Deploy
+#      run: |
+#       terraform apply --auto-approve
+#      env:
+#        TF_VAR_variable_name: ${{ secrets.TF_VAR_variable_name }}
       # You can set additional environment variables here
 
     - name: Cleanup
