@@ -17,21 +17,19 @@ jobs:
       uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: 0.14.7   # Use the desired Terraform version
-   
+      env:
+       cred : ${{ secrets.cred }} 
+       
 #    - name: Change directory
 #      run: cd gcp-terraformcode-module-gke/environment/prod
 
     - name: Initialize Terraform
       run: |
-       terraform init gcp-terraformcode-module-gke/environment/prod
-       env:
-       cred : ${{ secrets.cred }}      
-     
+       terraform init gcp-terraformcode-module-gke/environment/prod -var="cred=${{ secrets.cred }}"
+                
     - name: Plan
       run: |
-       terraform plan gcp-terraformcode-module-gke/environment/prod
-       env:
-       cred : ${{ secrets.cred }}
+       terraform plan gcp-terraformcode-module-gke/environment/prod -var="cred=${{ secrets.cred }}"
 
 #    - name: Deploy
 #      run: |
