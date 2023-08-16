@@ -2,6 +2,6 @@ terraform {
   backend "gcs" {
     bucket = "production-poc"
     prefix = "tfstate"
-    credentials =  ${{ secrets.cred }}
+    credentials =  "/home/achuabhin86/cred.json"
   }
 }
