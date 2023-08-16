@@ -24,10 +24,14 @@ jobs:
        terraform init
 
     - name: Plan
-      run: terraform plan -out=tfplan
+      run: |
+       cd gcp-terraformcode-module-gke/environment/dev/
+       terraform plan -out=tfplan
 
     - name: Deploy
-      run: terraform apply tfplan
+      run: |
+       cd gcp-terraformcode-module-gke/environment/dev/
+       terraform apply tfplan
       env:
         TF_VAR_variable_name: ${{ secrets.TF_VAR_variable_name }}
       # You can set additional environment variables here
