@@ -23,9 +23,9 @@ jobs:
 #    - name: Change directory
 #      run: cd gcp-terraformcode-module-gke/environment/prod
 
-#    - name: Initialize Terraform
-#      run: |
-#       terraform init gcp-terraformcode-module-gke/environment/prod 
+    - name: Initialize Terraform
+      run: |
+        terraform init gcp-terraformcode-module-gke/environment/prod 
                 
     - name: Plan
       run: |
