@@ -8,8 +8,7 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-    env:
-      GOOGLE_CREDENTIALS: ${{ secrets.cred }}
+   
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -29,6 +28,8 @@ jobs:
     - name: Plan
       run: |
        terraform plan gcp-terraformcode-module-gke/environment/prod
+       env:
+       cred : ${{ secrets.cred }}
 
 #    - name: Deploy
 #      run: |
