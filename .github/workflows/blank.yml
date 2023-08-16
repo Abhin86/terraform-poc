@@ -28,7 +28,7 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}  
                 
     - name: Plan
-      run: terraform plan --auto-approve
+      run: terraform plan -input=false
       
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }} 
