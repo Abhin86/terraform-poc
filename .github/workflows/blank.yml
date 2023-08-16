@@ -18,7 +18,7 @@ jobs:
       with:
         terraform_version: 0.14.7   # Use the desired Terraform version
       env:
-       cred : ${{ secrets.cred }} 
+       cred : ${{ secrets.CRED }} 
        
 #    - name: Change directory
 #      run: cd gcp-terraformcode-module-gke/environment/prod
@@ -26,12 +26,12 @@ jobs:
     - name: Initialize Terraform
       run: terraform init gcp-terraformcode-module-gke/environment/prod 
       env:
-         cred : ${{ secrets.cred }} 
+         cred : ${{ secrets.CRED }} 
                 
     - name: Plan
       run: terraform plan gcp-terraformcode-module-gke/environment/prod 
       env:
-         cred : ${{ secrets.cred }} 
+         cred : ${{ secrets.CRED }} 
   
 #    - name: Deploy
 #      run: |
