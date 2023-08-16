@@ -19,7 +19,9 @@ jobs:
         terraform_version: 0.14.7   # Use the desired Terraform version
 
     - name: Initialize Terraform
-      run: terraform init
+      run: |
+       cd gcp-terraformcode-module-gke/environment/dev/
+       terraform init
 
     - name: Plan
       run: terraform plan -out=tfplan
