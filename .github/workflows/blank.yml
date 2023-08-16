@@ -24,7 +24,8 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}  
                 
     - name: Plan
-      run: terraform plan gcp-terraformcode-module-gke/environment/dr
+      run: terraform plan gcp-terraformcode-module-gke/environment/dr -input=false
+      
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }} 
  
