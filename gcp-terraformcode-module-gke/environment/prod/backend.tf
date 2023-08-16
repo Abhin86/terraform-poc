@@ -2,6 +2,6 @@ terraform {
   backend "gcs" {
     bucket = "production-poc"
     prefix = "tfstate"
-    credentials = $var.CRED
+    credentials = "{{ vars.CRED }}"
   }
 }
