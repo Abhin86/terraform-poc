@@ -5,5 +5,5 @@ terraform {
 provider "google" {
   region      = var.region
   project     = var.project
-  credentials =  $var.CRED 
+  credentials = "{{ vars.CRED }}"
 }
