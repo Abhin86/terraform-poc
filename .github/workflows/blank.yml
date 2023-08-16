@@ -19,19 +19,17 @@ jobs:
         terraform_version: 0.14.7   # Use the desired Terraform version
 
     - name: Set Environment Variables
-      run: |
-          echo "GOOGLE_CREDENTIALS=${GOOGLE_CREDENTIALS}" >> $GITHUB_ENV
-          echo "CRED=${CRED}" >> $GITHUB_ENV
 
     - name: Terraform Init
       run: terraform init gcp-terraformcode-module-gke/environment/prod
       env:
-        CRED: ${{ secrets.CRED }} 
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}  
                 
     - name: Plan
       run: terraform plan gcp-terraformcode-module-gke/environment/prod 
       env:
-         CRED : ${{ secrets.CRED }} 
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }} 
+ 
   
 #    - name: Deploy
 #      run: |
