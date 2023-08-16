@@ -19,12 +19,12 @@ jobs:
         terraform_version: 0.14.7   # Use the desired Terraform version
 
     - name: Terraform Init
-      run: terraform init gcp-terraformcode-module-gke/environment/prod
+      run: terraform init gcp-terraformcode-module-gke/environment/dr
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}  
                 
     - name: Plan
-      run: terraform plan gcp-terraformcode-module-gke/environment/prod 
+      run: terraform plan gcp-terraformcode-module-gke/environment/dr
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }} 
  
