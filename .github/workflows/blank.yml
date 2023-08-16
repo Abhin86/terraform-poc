@@ -24,7 +24,9 @@ jobs:
     - name: Initialize Terraform
       run: |
        terraform init gcp-terraformcode-module-gke/environment/prod
-
+       env:
+       cred : ${{ secrets.cred }}      
+     
     - name: Plan
       run: |
        terraform plan gcp-terraformcode-module-gke/environment/prod
