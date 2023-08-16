@@ -8,7 +8,11 @@ on:
 jobs:
   terraform:
     runs-on: ubuntu-latest
-   
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./gcp-terraformcode-module-gke/environment/dr
+        
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -19,12 +23,12 @@ jobs:
         terraform_version: 0.14.7   # Use the desired Terraform version
 
     - name: Terraform Init
-      run: terraform init gcp-terraformcode-module-gke/environment/dr
+      run: terraform init 
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}  
                 
     - name: Plan
-      run: terraform plan gcp-terraformcode-module-gke/environment/dr -input=false
+      run: terraform plan --auto-approve
       
       env:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }} 
