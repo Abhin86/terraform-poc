@@ -24,13 +24,15 @@ jobs:
 #      run: cd gcp-terraformcode-module-gke/environment/prod
 
     - name: Initialize Terraform
-      run: |
-        terraform init gcp-terraformcode-module-gke/environment/prod 
+      run: terraform init gcp-terraformcode-module-gke/environment/prod 
+      env:
+         cred : ${{ secrets.cred }} 
                 
     - name: Plan
-      run: |
-       terraform plan gcp-terraformcode-module-gke/environment/prod 
-
+      run: terraform plan gcp-terraformcode-module-gke/environment/prod 
+      env:
+         cred : ${{ secrets.cred }} 
+  
 #    - name: Deploy
 #      run: |
 #       terraform apply --auto-approve
