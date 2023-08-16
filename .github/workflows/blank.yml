@@ -34,10 +34,11 @@ jobs:
         GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }} 
  
   
-#    - name: Deploy
-#      run: |
-#       terraform apply --auto-approve
-
+    - name: Deploy
+      run: |
+       terraform apply --auto-approve -input=false
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
     - name: Cleanup
       run: rm -f tfplan
