@@ -5,5 +5,5 @@ terraform {
 provider "google" {
   region      = var.region
   project     = var.project
-  credentials =  ${{ secrets.cred }}
+  credentials =  "home/achuabhin86/cred.json"
 }
