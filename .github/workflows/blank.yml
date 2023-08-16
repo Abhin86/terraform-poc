@@ -12,14 +12,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-
-    - name: Change directory
-      run: cd gcp-terraformcode-module-gke/environment/prod
         
     - name: Set up Terraform
       uses: hashicorp/setup-terraform@v1
       with:
         terraform_version: 0.14.7   # Use the desired Terraform version
+   
+    - name: Change directory
+      run: cd gcp-terraformcode-module-gke/environment/prod
 
     - name: Initialize Terraform
       run: |
