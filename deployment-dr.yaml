@@ -49,7 +49,7 @@ spec:
         name: wordpress
         env:
         - name: WORDPRESS_DB_HOST
-          value: 34.171.113.102
+          value: 34.122.227.33
         - name: WORDPRESS_DB_PASSWORD
           value: wordpress
         ports:
