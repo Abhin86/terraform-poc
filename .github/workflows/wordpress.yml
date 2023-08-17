@@ -26,6 +26,9 @@ jobs:
         with:
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
 
+      - name: install kubectl
+        run: gcloud components install gke-gcloud-auth-plugin
+        
       - name: Set GCP Project ID
         run: gcloud config set project poc-ansible-tomcat
       
