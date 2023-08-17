@@ -27,7 +27,9 @@ jobs:
           credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
 
       - name: install kubectl
-        run: sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+        run: |
+          sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin
+          sudo apt-get install kubectl
         
       - name: Set GCP Project ID
         run: gcloud config set project poc-ansible-tomcat
