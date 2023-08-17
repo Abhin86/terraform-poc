@@ -73,7 +73,7 @@ metadata:
     #kubernetes.io/ingress.global-static-ip-name: ingress-wordpress
 spec:
   rules:
-    - host: wordpress.sithara.tech
+    - host: www.achuabhin.tech
       http:
         paths:
           - path: /
