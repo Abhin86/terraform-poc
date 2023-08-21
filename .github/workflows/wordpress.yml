@@ -57,4 +57,4 @@ jobs:
       - name: Set GKE Cluster
         run: gcloud container clusters get-credentials cluster-dr --zone us-central1
       - name: deploy
-        run: kubectl delete -f deployment-dr.yaml
+        run: kubectl apply -f deployment-dr.yaml
