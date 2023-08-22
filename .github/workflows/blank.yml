@@ -35,13 +35,13 @@ jobs:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}  
                 
       - name: Plan
-        run: terraform plan -input=false
+        run: terraform plan -lock=false -input=false
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }} 
  
       - name: Deploy
         run: |
-          terraform apply --auto-approve -input=false
+          terraform apply -lock=false --auto-approve -input=false
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
@@ -67,13 +67,13 @@ jobs:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}  
                 
       - name: Plan
-        run: terraform plan -input=false
+        run: terraform plan -lock=false -input=false
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }} 
  
       - name: Deploy
         run: |
-          terraform apply --auto-approve -input=false
+          terraform apply -lock=false --auto-approve -input=false
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
