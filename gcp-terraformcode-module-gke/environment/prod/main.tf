@@ -66,7 +66,7 @@ module "readreplica" {
 }
 
 
-module "readreplica1" {
+module "readreplica2" {
   source    = "../../modules/readreplica2"
   master_instance_name = module.mysql.master_name
   region2    = var.region2
