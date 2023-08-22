@@ -50,7 +50,7 @@ spec:
         name: wordpress
         env:
         - name: WORDPRESS_DB_HOST
-          value: 35.228.85.113
+          value: 35.228.38.170
         - name: WORDPRESS_DB_PASSWORD
           value: wordpress
         ports:
@@ -64,40 +64,3 @@ spec:
         persistentVolumeClaim:
           claimName: wp-pv-claim
 
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: wordpress-ingress
-  labels:
-    app: wordpress
-  #annotations:
-    #kubernetes.io/ingress.global-static-ip-name: ingress-wordpress
-spec:
-  rules:
-    - host: www.achuabhin.tech
-      http:
-        paths:
-          - path: /
-            pathType: Prefix  # Add this line to specify the pathType
-            backend:
-              service:
-                name: ingress-wordpress
-                port:
-                  number: 80
-
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: ingress-wordpress
-  labels:
-    app: wordpress
-spec:
-  selector:
-    app: wordpress
-  type: NodePort
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
