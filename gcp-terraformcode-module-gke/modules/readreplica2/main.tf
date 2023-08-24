@@ -18,7 +18,7 @@ resource "google_sql_database_instance" "read_replica" {
     }
     ip_configuration { 
       ipv4_enabled    = true
-      private_network = var.vpc
+      private_network = var.private_network
     }
   }
 }
