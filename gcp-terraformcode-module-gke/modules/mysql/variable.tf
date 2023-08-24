@@ -3,4 +3,4 @@ variable "region" {}
 variable "database_instance" {}
 variable "tier" {}
 variable "password" {}
-variable "vpc" {}
+variable "private_network" {}
