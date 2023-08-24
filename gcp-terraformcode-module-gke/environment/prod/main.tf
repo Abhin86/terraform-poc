@@ -54,7 +54,7 @@ module "mysql" {
   region    = var.region
   tier      = var.tier
   password  = var.password
-  private_network = module.vpc.network_name
+  #private_network = module.vpc.network_name
 }
 
 
@@ -64,7 +64,7 @@ module "readreplica" {
   master_instance_name = module.mysql.master_name
   region2    = var.region2
   tier      = var.tier
-  private_network = module.vpc.network_name
+  #private_network = module.vpc.network_name
 }
 
 
@@ -73,5 +73,5 @@ module "readreplica2" {
   master_instance_name = module.mysql.master_name
   region2    = var.region2
   tier      = var.tier
-  private_network = module.vpc.network_name
+  #private_network = module.vpc.network_name
 }
