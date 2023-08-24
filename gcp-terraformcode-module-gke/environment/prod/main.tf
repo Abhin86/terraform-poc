@@ -64,6 +64,7 @@ module "readreplica" {
   master_instance_name = module.mysql.master_name
   region2    = var.region2
   tier      = var.tier
+  private_network = module.vpc.network_name
 }
 
 
@@ -72,4 +73,5 @@ module "readreplica2" {
   master_instance_name = module.mysql.master_name
   region2    = var.region2
   tier      = var.tier
+  private_network = module.vpc.network_name
 }
