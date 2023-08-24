@@ -82,6 +82,6 @@ variable "password" {
 }
 #variable "master_instance_name" {}
 variable "region2" {}
-variable "vpc" {}
+variable "private_network"
 
 
