@@ -50,7 +50,7 @@ jobs:
           #docker push sitharamaneesh/mariadb:10.5.8
 
       - name: create secret
-        run: kubectl create secret generic DB-SECRET \
+        run: kubectl create secret generic db-secret \
               --from-literal=password=${{ secrets.DB_PWD }} \
               --from-literal=database=${{ secrets.DB_HOST }}
       - name: deploy
