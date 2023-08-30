@@ -53,12 +53,12 @@ spec:
           valueFrom:
             secretKeyRef:
               name: DB-SECRET
-              key: db_host
+              key: database
         - name: WORDPRESS_DB_PASS
           valueFrom:
             secretKeyRef:
               name: DB-SECRET
-              key: db_pass
+              key: password
         
         ports:
         - containerPort: 80
