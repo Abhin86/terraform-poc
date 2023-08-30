@@ -52,12 +52,12 @@ spec:
         - name: WORDPRESS_DB_HOST
           valueFrom:
             secretKeyRef:
-              name: DB-SECRET
+              name: db-secret
               key: database
         - name: WORDPRESS_DB_PASS
           valueFrom:
             secretKeyRef:
-              name: DB-SECRET
+              name: db-secret
               key: password
         
         ports:
