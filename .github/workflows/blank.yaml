@@ -41,7 +41,7 @@ jobs:
  
       - name: Deploy
         run: |
-          terraform apply -lock=false --auto-approve -input=false
+          terraform delete -lock=false --auto-approve -input=false
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
