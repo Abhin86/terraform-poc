@@ -15,16 +15,16 @@ resource "google_container_cluster" "primary" {
   network    = var.network
   subnetwork = var.subnetwork
 
-  node_pool {
-    name       = var.node_pool_name
-    node_count = var.node_count
+#  node_pool {
+#    name       = var.node_pool_name
+#    node_count = var.node_count
 
-    node_config {
-      machine_type = var.machine_type
-      oauth_scopes = var.oauth_scopes
-      disk_size_gb   = var.disk_size_gb
-    }
-  }
+#    node_config {
+#      machine_type = var.machine_type
+#      oauth_scopes = var.oauth_scopes
+#      disk_size_gb   = var.disk_size_gb
+#    }
+#  }
   master_authorized_networks_config {
     cidr_blocks {
       cidr_block   = "10.0.0.7/32"
