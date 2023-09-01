@@ -34,3 +34,22 @@ resource "google_container_cluster" "primary" {
   }
 }
 
+resource "google_container_node_pool" "primary_nodes" {
+  name       = var.node_pool_name
+  #location   = .cluster_location
+  cluster    = var.cluster-name
+  node_count = var.node_count
+  node_config {
+    oauth_scopes = var.oauth_scopes
+    labels = {
+      env = "dev"
+    }
+    machine_type = var.machine_type
+    disk_size_gb   = var.disk_size_gb
+    preemptible  = true
+       metadata = {
+      disable-legacy-endpoints = "true"
+    }
+  }
+}
+
