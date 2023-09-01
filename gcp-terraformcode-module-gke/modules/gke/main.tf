@@ -37,7 +37,7 @@ resource "google_container_cluster" "primary" {
 resource "google_container_node_pool" "primary_nodes" {
   name       = var.node_pool_name
   #location   = .cluster_location
-  cluster    = var.cluster-name
+  cluster    = var.cluster_name
   node_count = var.node_count
   node_config {
     oauth_scopes = var.oauth_scopes
