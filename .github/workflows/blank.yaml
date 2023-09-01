@@ -39,11 +39,11 @@ jobs:
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }} 
  
-#      - name: Deploy
-#        run: |
-#          terraform destroy -lock=false --auto-approve -input=false
-#        env:
-#          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
+      - name: Deploy
+        run: |
+          terraform destroy -lock=false --auto-approve -input=false
+        env:
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
   deploy-dr:
     runs-on: ubuntu-latest
@@ -73,7 +73,7 @@ jobs:
  
       - name: Deploy
         run: |
-          terraform apply -lock=false --auto-approve -input=false
+          terraform destroy -lock=false --auto-approve -input=false
         env:
           GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
 
