@@ -54,7 +54,7 @@ spec:
             secretKeyRef:
               name: db-secret
               key: database
-        - name: WORDPRESS_DB_PASS
+        - name: WORDPRESS_DB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: db-secret
