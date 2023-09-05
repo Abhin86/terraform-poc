@@ -52,7 +52,7 @@ jobs:
       - name: create secret
         run: kubectl create secret generic db-secret --from-literal=password=${{ secrets.DB_PWD }} --from-literal=database=${{ secrets.DB_HOST }}
       - name: deploy
-        run: kubectl apply -f deployment.yaml
+        run: kubectl delete -f deployment.yaml
 
 #      - name: Set GKE Cluster
 #        run: gcloud container clusters get-credentials cluster-dr --zone us-central1
